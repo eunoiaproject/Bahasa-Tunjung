@@ -893,5 +893,26 @@ Please review the changes and ensure they meet your expectations (correct indent
 9 Edit again if necessary.
 10 Update.
 
+# Tonyooi Linux Utils (Bahasa Tunjung) 🌾
+
+Modul sederhana untuk mengintegrasikan respon **Bahasa Tunjung (Tonyooi)** ke dalam perintah sistem `util-linux` di Ubuntu dan Debian. Proyek ini bertujuan untuk melestarikan bahasa daerah dalam lingkungan komputasi modern.
+
+## ✨ Fitur
+* **Localized Response**: Pesan sukses dan gagal dalam Bahasa Tonyooi.
+* **Wrapper System**: Berjalan di atas perintah asli Linux tanpa merusak sistem.
+* **Lightweight**: Hanya berupa skrip bash ringan.
+
+## 💬 Contoh Respon
+| Peristiwa | Pesan Tonyooi | Arti |
+| :--- | :--- | :--- |
+| Berhasil | `Status: SOOQ (Selesai/Sudah)` | Perintah selesai dijalankan |
+| Konfirmasi | `Kena beneh! Perintah soq dijalankan.` | Benar sekali! Perintah sudah jalan. |
+| Gagal | `Heq kena. Coba ulih.` | Tidak benar (Gagal). Coba lagi. |
+
+## 🔗 Kontribusi
+Proyek ini merupakan bagian dari inisiatif pelestarian bahasa. Silakan cek repositori utama di:
+[https://github.com/eunoiaproject/Bahasa-Tunjung](https://github.com/eunoiaproject/Bahasa-Tunjung)
+
+
 
 
