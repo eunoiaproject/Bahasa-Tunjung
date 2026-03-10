@@ -1,0 +1,14 @@
+cat << 'EOF' > ~/database_tonyooi.db
+# KATEGORI | ISTILAH ASLI | PADANAN TONYOOI | ARTI
+[SYSTEM]   | Success      | Kena' Beneh     | Berhasil Sempurna
+[SYSTEM]   | Failed       | Heq Kena        | Tidak Benar / Gagal
+[SYSTEM]   | Processing   | Nyurat Tulur    | Menulis Alur (Proses)
+[SYSTEM]   | Permission   | Tabiq           | Permisi (Sudo)
+[PROG]     | Variable     | Ngarai          | Nama / Penanda
+[PROG]     | Loop         | Kerajut         | Simpul / Putaran
+[PROG]     | Data         | Meluas          | Luas / Banyak
+[PROG]     | Error        | Me-it Masalah   | Ada Masalah
+[PROG]     | Exit         | Petuq           | Putus / Keluar
+[PROG]     | Directory    | Kebon           | Kebun / Wadah File
+[PROG]     | Build        | Tepeq           | Menempel / Menyusun
+EOF
