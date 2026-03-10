@@ -1,16 +1,51 @@
 #!/bin/bash
 
-# --- Glosarium Tonyooi ---
-# Sooq / Soq      : Sudah / Selesai
-# Ginaaq          : Belum
-# Kena / Kena'    : Benar / Berhasil
-# Heq             : Tidak / Bukan
-# Ulih            : Bisa / Lagi (Coba lagi)
-# Tabiq           : Permisi / Maaf (Biasanya untuk akses root/sudo)
-# Jakaq           : Silahkan
-# Ngara           : Nama / Keterangan
-# Meeq            : Ada
-# Takaq           : Milik / Punya
+DB_PATH="$HOME/database_tonyooi.db"
+
+# Fungsi mengambil kata dari database
+get_tonyooi() {
+    grep "$1" "$DB_PATH" | cut -d '|' -f 3 | xargs
+}
+
+# Load istilah dari database
+T_SUCCESS=$(get_tonyooi "Success")
+T_FAILED=$(get_tonyooi "Failed")
+T_PROCESS=$(get_tonyooi "Processing")
+T_TABIQ=$(get_tonyooi "Permission")
+T_ERROR=$(get_tonyooi "Error")
+
+tonyooi_header() {
+    echo -e "\e[34m[$T_PROCESS...]\e[0m Memulai alur sistem..."
+    sleep 0.5
+}
+
+# Eksekusi Perintah
+if [ -z "$1" ]; then
+    echo "Guna: tonyooi [perintah]"
+    exit 1
+fi
+
+# Cek Sudo
+if [[ "$1" == "sudo" || "$1" == "apt" || "$1" == "fdisk" ]]; then
+    echo -e "\e[33m$T_TABIQ...\e[0m (Meminta izin akses)"
+fi
+
+tonyooi_header
+$@
+
+# Cek Status Akhir
+if [ $? -eq 0 ]; then
+    echo -e "\n\e[32m------------------------------------------"
+    echo -e "STATUS: $T_SUCCESS"
+    echo -e "PESAN : Perintah soq selesai (Done)."
+    echo -e "------------------------------------------\e[0m"
+else
+    echo -e "\n\e[31m------------------------------------------"
+    echo -e "STATUS: $T_FAILED"
+    echo -e "PESAN : $T_ERROR (Periksa kembali)."
+    echo -e "------------------------------------------\e[0m"
+fi
+
 
 # Fungsi Pesan Sukses
 tonyooi_kena() {
